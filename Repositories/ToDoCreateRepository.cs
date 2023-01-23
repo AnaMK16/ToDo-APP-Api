@@ -1,3 +1,4 @@
+using System.Text;
 using TodoApp.Api.DB;
 using TodoApp.Api.Models.Entities;
 
@@ -7,6 +8,7 @@ public interface IToDoCreateRepository
 {
     void Insert(TodoEntity entity);
     Task SaveChangesAsync();
+    List<TodoEntity> Read();
 }
 public class ToDoCreateRepository : IToDoCreateRepository
 {
@@ -25,5 +27,15 @@ public class ToDoCreateRepository : IToDoCreateRepository
     {
         await _db.SaveChangesAsync();
     }
+
+    public List<TodoEntity> Read()
+    {
+        var data = _db.Todos.OrderBy(x => x.DeadLine).ToList();
+        return data;
+
+    }
+    
+    
   
 }
+

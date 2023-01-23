@@ -30,4 +30,11 @@ public class ToDoController : ControllerBase
          return Ok();
 
     }
+
+    [HttpGet("ReadAllToDos")]
+    public List<TodoEntity> GetAllToDos()
+    {
+        return _toDoCreateRepository.Read();
+    }
+    
 }

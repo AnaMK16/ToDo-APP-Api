@@ -27,4 +27,5 @@ public class SendEmailRequestRepository : ISendEmailRequestRepository
     {
         await _db.SaveChangesAsync();
     }
+    
 }
