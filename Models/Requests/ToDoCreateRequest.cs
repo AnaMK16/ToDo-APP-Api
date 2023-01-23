@@ -1,10 +1,8 @@
-namespace TodoApp.Api.Models.Entities;
+namespace TodoApp.Api.Models.Requests;
 
-public class TodoEntity
+public class ToDoCreateRequest
 {
-    public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public DateTime DeadLine { get; set; }
-    
 }

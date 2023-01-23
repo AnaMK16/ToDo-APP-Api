@@ -8,9 +8,9 @@ namespace TodoApp.Api.DB;
 
 public class AppDbContext : IdentityDbContext<UserEntity, RoleEntity, int>
 {
-    public DbSet<RoleEntity> Roles { get; set; }
-    public DbSet<UserEntity> Users { get; set; }
+   public DbSet<SendEmailRequestEntity> SendEmailRequests { get; set; }
     public DbSet<TodoEntity> Todos { get; set; }
+    
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
         
