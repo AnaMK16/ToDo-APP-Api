@@ -66,7 +66,7 @@ public class AuthController : ControllerBase
             return BadRequest("Invalid email or password");
         }
         
-        return Ok(_tokenGenerator.Generate(request.Email));
+        return Ok(_tokenGenerator.Generate(user.Id.ToString()));
     }
 /*
     [HttpPost("generate-password-reset-token")]
@@ -122,7 +122,6 @@ public class AuthController : ControllerBase
             return NotFound("User not found");
         }
         var resetResult = await _userManager.ResetPasswordAsync(user, request.PasswordResetToken, request.Password);
-        
         
         if (!resetResult.Succeeded)
         {

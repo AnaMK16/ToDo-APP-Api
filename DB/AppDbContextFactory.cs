@@ -8,7 +8,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     public AppDbContext CreateDbContext(string[] args)
     {
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        optionsBuilder.UseSqlServer(args[0]);
+        optionsBuilder.UseSqlServer("Server=localhost;Database=ToDoAppDB;User Id=sa;Password=Anabec3451.");
         
         return new AppDbContext(optionsBuilder.Options);
     }
