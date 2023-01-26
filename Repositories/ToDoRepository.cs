@@ -13,7 +13,7 @@ public interface IToDoRepository
     Task SaveChangesAsync();
     List<TodoEntity> Read();
     List<TodoEntity> Search(SearchRequest request);
-    Task UpdateTitleAsync(UpdateToDoRequest request);
+    Task UpdateToDoAsync(UpdateToDoRequest request);
     Task ChangeStatus(ChangeToDoStatusRequest request);
 }
 public class ToDoRepository : IToDoRepository
@@ -51,7 +51,7 @@ public class ToDoRepository : IToDoRepository
         return entities;
     }
 
-    public async Task UpdateTitleAsync(UpdateToDoRequest request)
+    public async Task UpdateToDoAsync(UpdateToDoRequest request)
     {
         var toDo =  _db.Todos.Where(t => t.Title == request.CurrentTitle).First();
         if (!string.IsNullOrEmpty(request.NewTitle))

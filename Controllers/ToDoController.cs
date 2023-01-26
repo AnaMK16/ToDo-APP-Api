@@ -86,7 +86,7 @@ public class ToDoController : ControllerBase
             return null;
         }
 
-        await _toDoRepository.UpdateTitleAsync(request);
+        await _toDoRepository.UpdateToDoAsync(request);
         await _toDoRepository.SaveChangesAsync();
         return Ok();
         
